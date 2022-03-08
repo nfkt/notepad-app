@@ -1,0 +1,33 @@
+textarea {
+    resize: none !important;
+    overflow: none !important;
+    outline: none;
+    box-shadow: none !important;
+    border-color: #3AAFA9 !important;
+    height:max-content;
+    flex-grow: 1;
+  }
+  textarea.notes {
+    width: 100%;
+    /* height: 40em; */
+    color: blue;
+    font-weight: 1000;
+    line-height: 31px;
+    background-image: -webkit-linear-gradient(left, white 0, transparent 0), -webkit-linear-gradient(right, #FEFFFF 0, transparent 0), -webkit-linear-gradient(#FEFFFF 30px, #3AAFA9 30px, #3AAFA9 31px, #FEFFFF 31px);
+    background-repeat: repeat-y;
+    background-size: 100% 100%, 100% 100%, 100% 31px;
+    background-attachment: local;
+  }
+  textarea:hover {
+    resize: none !important;
+    overflow: auto !important;
+    outline: none;
+    box-shadow: none !important;
+    border-color: #3AAFA9 !important;
+  }
+
+  ::-webkit-scrollbar {
+    /* WebKit */
+    width: 0;
+    height: 0;
+  }
