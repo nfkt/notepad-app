@@ -13,14 +13,15 @@ export const NotePageView = ({
   inputs,
   handleChange,
   isChanged,
-  noteContent
+  noteContent,
+  getNoteTitles
 }) => {
 
   const { open, handleClick, handleClose } = useSnackBarActions();
 
   return (
     <>
-      <NavBar drawerComponent={NoteDrawer} drawerData= {noteContent} sx={{ bgcolor: "primary.main" }} />
+      <NavBar drawerComponent={NoteDrawer} drawerData= {noteContent} getNoteTitles={getNoteTitles} sx={{ bgcolor: "primary.main" }} />
       <NotePad
         note={notes}
         id={id}

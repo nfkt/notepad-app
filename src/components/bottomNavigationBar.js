@@ -6,6 +6,7 @@ import RestoreIcon from '@mui/icons-material/Restore';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import AddIcon from '@mui/icons-material/Add';
+import ArticleIcon from '@mui/icons-material/Article';
 
 export default function BottomNavigationBar({handleClick}) {
   const [value, setValue] = React.useState(0);
@@ -21,7 +22,7 @@ export default function BottomNavigationBar({handleClick}) {
         // }}
       >
         <BottomNavigationAction label="Add" icon={<AddIcon />} onClick={handleClick}/>
-        <BottomNavigationAction label="List" icon={<LocationOnIcon />} />
+        <BottomNavigationAction label="List" icon={<ArticleIcon />} />
       </BottomNavigation>
     </Box>
   );

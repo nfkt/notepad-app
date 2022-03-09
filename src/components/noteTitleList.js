@@ -3,7 +3,9 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import ArticleIcon from '@mui/icons-material/Article';
 
-export const NoteTitleList = ({items})=>{
+export const NoteTitleList = ({items, getNoteTitles})=>{
+
+  
 
     return(
         <>
@@ -11,7 +13,7 @@ export const NoteTitleList = ({items})=>{
           <List sx={{color: 'secondaryText.main'}}> 
         
           {items.map((text, index) => (
-            <ListItem button key={text}>
+            <ListItem button key={index} onClick={()=> {getNoteTitles(index); console.log(text.title, " itworks")}}>
               <ListItemIcon>
                 <ArticleIcon />
               </ListItemIcon>

@@ -1,24 +1,17 @@
 import { NotePageView } from "./notePageView";
 import { createNoteData, getAllNotes } from "services/notesServices";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { updateNoteData } from 'services/notesServices';
-
+import NoteContext from "contexts/noteContext/noteContext";
 
 
 export const NotePageContainer = () => {
     const [note, setNote] = useState('Content');
     const [noteData, setNoteData] = useState([]);
     const [id, setId] = useState('Id');
+    const noteContext = useContext(NoteContext);
 
-    useEffect(()=>{
-        getAllNotes().then((res)=>{
-            console.log(res);
-           
-            setNoteData(res)
-            setNote(res[0].description)
-            setId(res[0]._id)
-        });
-    }, []);
+  
     const [inputs, setInputs] = useState('hello');
     const [isChanged, setChanged] = useState(false);
 
@@ -32,16 +25,16 @@ export const NotePageContainer = () => {
 
       useEffect(()=>{
         // setInputs((values) => ({ ...values, [name]: value }));
-        setInputs(note);
-      }, [note]);
+        setInputs(noteContext.note);
+      }, [noteContext.note]);
 
       useEffect(() => {
-        const timeOutId = setTimeout(() => {setInputs(inputs); updateNoteData(id, {description: inputs}).then((res)=> setChanged(true));}, 2000);
+        const timeOutId = setTimeout(() => {setInputs(inputs); updateNoteData(noteContext.id, {description: inputs}).then((res)=> setChanged(true));}, 2000);
         return () => clearTimeout(timeOutId);
       }, [inputs]);
 
 
     return (
-        <NotePageView notes={note} id={id} inputs={inputs} handleChange={handleChange} isChanged={isChanged} noteContent={noteData ? noteData: ['trouble loading notes']}/>
+        <NotePageView notes={noteContext.note} id={noteContext.id} inputs={inputs} handleChange={handleChange} isChanged={isChanged} noteContent={noteContext.noteData ? noteContext.noteData: ['trouble loading notes']} getNoteTitles={noteContext.getNoteFn}/>
     )
 }

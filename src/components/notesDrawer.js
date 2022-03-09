@@ -4,7 +4,7 @@ import Drawer from '@mui/material/Drawer';
 import { Container, IconButton } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 
-export const NoteDrawer = ({drawerContent:DrawerContent, drawerData}) => {
+export const NoteDrawer = ({drawerContent:DrawerContent, drawerData, getNoteTitles}) => {
 
     const [state, setState] = React.useState({
         top: false,
@@ -29,7 +29,7 @@ export const NoteDrawer = ({drawerContent:DrawerContent, drawerData}) => {
           onClick={toggleDrawer(anchor, false)}
           onKeyDown={toggleDrawer(anchor, false)}
         >
-            <DrawerContent items={drawerData}/>
+            <DrawerContent items={drawerData} getNoteTitles={getNoteTitles} />
             
         </Box>
         </Container>
