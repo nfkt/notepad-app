@@ -1,18 +1,10 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
-import Button from '@mui/material/Button';
-import List from '@mui/material/List';
-import Divider from '@mui/material/Divider';
-import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
-import { IconButton } from '@mui/material';
+import { Container, IconButton } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 
-export const NoteDrawer = ({children}) => {
+export const NoteDrawer = ({drawerContent:DrawerContent, drawerData}) => {
 
     const [state, setState] = React.useState({
         top: false,
@@ -30,15 +22,17 @@ export const NoteDrawer = ({children}) => {
       };
     
       const list = (anchor) => (
+        <Container sx={{bgcolor:'primary.main', height:'inherit'}}>
         <Box
-          sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
+          sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250, height: 'inherit', bgcolor:'inherit' }}
           role="presentation"
           onClick={toggleDrawer(anchor, false)}
           onKeyDown={toggleDrawer(anchor, false)}
         >
-            {children}
-            Content in the drawer
+            <DrawerContent items={drawerData}/>
+            
         </Box>
+        </Container>
       );
     
       return (

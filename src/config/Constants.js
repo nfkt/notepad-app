@@ -1,4 +1,5 @@
 // any app specific constants that you don't want to keep in config can go here.
+export const PROXY = "http://localhost:4000"
 export const SYSTEM_ERROR = "System error. Please try again later!";
 export const CTA_YES = "Yes";
 export const CTA_NO = "No";

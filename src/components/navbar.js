@@ -11,8 +11,9 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import { NoteTitleList } from './noteTitleList';
 
-export const NavBar = ({ drawerComponent: DrawerComponent }) => {
+export const NavBar = ({ drawerComponent: DrawerComponent, drawerData }) => {
 
     return (
         <AppBar position="sticky">
@@ -24,11 +25,11 @@ export const NavBar = ({ drawerComponent: DrawerComponent }) => {
                         component="div"
                         sx={{ mr: 2, display: { xs: 'none', md: 'flex' },  }}
                     >
-                        <DrawerComponent />
+                        <DrawerComponent drawerData={drawerData} drawerContent={NoteTitleList} />
                     </Typography>
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-                        <DrawerComponent />
+                        <DrawerComponent drawerData={drawerData} drawerContent={NoteTitleList}/>
                     </Box>
                     <Typography
                         variant="h6"
