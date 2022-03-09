@@ -18,10 +18,12 @@ export const NoteContextProvider = ({children})=>{
     }, [note]);
 
     const getNoteFn = (index)=> {setNote(noteData[index].description); setId(noteData[index]._id)};
+    const createNoteFn = ()=> createNoteData();
 
         return(
             <NoteContext.Provider value={{
                 getNoteFn,
+                createNoteFn,
                 note,
                 id,
                 noteData

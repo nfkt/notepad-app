@@ -21,7 +21,7 @@ const style = {
     boxShadow: 24,
     p: 4,
 };
-export const NoteTitleModal = ({ children, isOpen, isClose }) => {
+export const NoteTitleModal = ({ modalChild: ModalChild, isOpen, isClose }) => {
     return (
         <>
             <Modal
@@ -37,7 +37,7 @@ export const NoteTitleModal = ({ children, isOpen, isClose }) => {
             >
                 <Fade in={isOpen}>
                     <Box sx={style}>
-                        {children}
+                        <ModalChild />
                     </Box>
                 </Fade>
             </Modal>
