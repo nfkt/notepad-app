@@ -18,15 +18,17 @@ export const NotePageView = ({
   isChanged,
   noteContent,
   getNoteTitles,
+  handleTitleChange,
+  handleSubmit,
 }) => {
   const { open, handleClick, handleClose } = useSnackBarActions();
   const { openFloatingBtn, handleModalOpen, handleModalClose } =
     useFloatingActionButton();
-  const handleModalClick = ()=>{
+  const handleModalClick = () => {
     handleClick();
     handleModalOpen();
     console.log(openFloatingBtn);
-  }
+  };
 
   return (
     <>
@@ -46,7 +48,13 @@ export const NotePageView = ({
         isChanged={isChanged}
       />
       <FloatingActionButton handleClick={handleModalClick} />
-      <NoteTitleModal isOpen={openFloatingBtn} modalChild={NoteTitleField} isClose={handleModalClose}/>
+      <NoteTitleModal
+        isOpen={openFloatingBtn}
+        modalChild={NoteTitleField}
+        isClose={handleModalClose}
+        handleTitleChange={handleTitleChange}
+        handleSubmit={handleSubmit}
+      />
       <BottomNavigationBar handleClick={handleModalClick} />
       <SnackBar handleClose={handleClose} isOpen={open} />
     </>

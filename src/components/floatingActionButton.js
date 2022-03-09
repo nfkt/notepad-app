@@ -3,13 +3,7 @@ import Box from "@mui/material/Box";
 import Fab from "@mui/material/Fab";
 import AddIcon from "@mui/icons-material/Add";
 
-export const FloatingActionButton = ({
-  handleClick,
-  child: Child,
-  handleChildOpen,
-  handleChildClose,
-  children
-}) => {
+export const FloatingActionButton = ({ handleClick }) => {
   return (
     <Box
       onClick={handleClick}
@@ -23,7 +17,7 @@ export const FloatingActionButton = ({
       }}
     >
       <Fab color="primary" aria-label="add">
-        <AddIcon/>
+        <AddIcon />
       </Fab>
     </Box>
   );

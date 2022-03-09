@@ -7,6 +7,7 @@ export const NoteContextProvider = ({children})=>{
     const [note, setNote] = useState(null);
     const [noteData, setNoteData] = useState([]);
     const [id, setId] = useState(null);
+    const [title, setTitle] = useState(null);
 
     useEffect(()=>{
         getAllNotes().then((res)=>{
@@ -15,10 +16,11 @@ export const NoteContextProvider = ({children})=>{
             setNote(!note? res[0].description: note)
             setId(!id ? res[0]._id: id);
         });
-    }, [note]);
+    }, [note, title]);
 
     const getNoteFn = (index)=> {setNote(noteData[index].description); setId(noteData[index]._id)};
-    const createNoteFn = ()=> createNoteData();
+    const createNoteFn = (data)=> createNoteData(data);
+    const titleSet = (title)=> setTitle(title)
 
         return(
             <NoteContext.Provider value={{
@@ -26,7 +28,9 @@ export const NoteContextProvider = ({children})=>{
                 createNoteFn,
                 note,
                 id,
-                noteData
+                noteData,
+                title,
+                titleSet
             }}>
                 {children}
             </NoteContext.Provider>

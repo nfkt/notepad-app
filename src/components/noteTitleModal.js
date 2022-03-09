@@ -1,6 +1,3 @@
-
-
-
 import * as React from 'react';
 import Backdrop from '@mui/material/Backdrop';
 import Box from '@mui/material/Box';
@@ -19,9 +16,25 @@ const style = {
     bgcolor: 'lightSlateGrey',
     border: '2px solid #000',
     boxShadow: 24,
-    p: 4,
+    // p: 4,
+    width: '100%',
+    // display:{xs:'flex', md:'none'}
 };
-export const NoteTitleModal = ({ modalChild: ModalChild, isOpen, isClose }) => {
+
+const styleXS = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    // width: 400,
+    bgcolor: 'lightSlateGrey',
+    border: '2px solid #000',
+    boxShadow: 24,
+    // p: 4,
+    width: '50%',
+    display:{xs:'none', md:'flex'}
+};
+export const NoteTitleModal = ({ modalChild: ModalChild, isOpen, isClose, handleTitleChange, handleSubmit }) => {
     return (
         <>
             <Modal
@@ -37,9 +50,10 @@ export const NoteTitleModal = ({ modalChild: ModalChild, isOpen, isClose }) => {
             >
                 <Fade in={isOpen}>
                     <Box sx={style}>
-                        <ModalChild />
+                        <ModalChild handleTitleChange={handleTitleChange} handleSubmit={handleSubmit}/>
                     </Box>
                 </Fade>
+                
             </Modal>
         </>
     )
