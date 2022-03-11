@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import { Container, IconButton } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
+import './noteTitleList.css';
 
 export const NoteDrawer = ({drawerContent:DrawerContent, drawerData, getNoteTitles}) => {
 
@@ -36,7 +37,7 @@ export const NoteDrawer = ({drawerContent:DrawerContent, drawerData, getNoteTitl
       );
     
       return (
-        <div>
+    
             <React.Fragment>
             <IconButton
                 size="large"
@@ -52,12 +53,13 @@ export const NoteDrawer = ({drawerContent:DrawerContent, drawerData, getNoteTitl
                 anchor={'left'}
                 open={state['left']}
                 onClose={toggleDrawer('left', false)}
+
               >
                 {list('left')}
               </Drawer>
             </React.Fragment>
         
-        </div>
+        
       );
 }
 

@@ -18,8 +18,10 @@ export const NoteContextProvider = ({children})=>{
         });
     }, [note, title]);
 
+ 
+
     const getNoteFn = (index)=> {setNote(noteData[index].description); setId(noteData[index]._id)};
-    const createNoteFn = (data)=> createNoteData(data);
+    const createNoteFn = (data)=> {createNoteData(data).then((res)=>{setNote(res.description); setId(res._id); console.log(res.description)})};
     const titleSet = (title)=> setTitle(title)
 
         return(

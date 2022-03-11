@@ -10,7 +10,7 @@ export const NoteTitleList = ({items, getNoteTitles})=>{
     return(
         <>
                 
-          <List sx={{color: 'secondaryText.main'}}> 
+          <List sx={{color: 'secondaryText.main', bgcolor:'inherit'}}> 
         
           {items.map((text, index) => (
             <ListItem button key={index} onClick={()=> {getNoteTitles(index); console.log(text.title, " itworks")}}>
@@ -22,7 +22,7 @@ export const NoteTitleList = ({items, getNoteTitles})=>{
           ))}
         </List>
         <Divider />
-        <List>
+        <List sx={{bgcolor:'inherit'}}>
           {['All mail', 'Trash', 'Spam'].map((text, index) => (
             <ListItem button key={text}>
               <ListItemIcon>

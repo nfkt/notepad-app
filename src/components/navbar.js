@@ -27,10 +27,11 @@ export const NavBar = ({ drawerComponent: DrawerComponent, drawerData, getNoteTi
                     >
                         <DrawerComponent drawerData={drawerData} drawerContent={NoteTitleList} getNoteTitles={getNoteTitles}/>
                     </Typography>
-
-                    <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+                    <Container sx={{bgcolor:'primary.main'}}>
+                    <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, bgcolor:'inherit' }}>
                         <DrawerComponent drawerData={drawerData} drawerContent={NoteTitleList} getNoteTitles={getNoteTitles}/>
                     </Box>
+                    </Container>
                     <Typography
                         variant="h6"
                         noWrap
