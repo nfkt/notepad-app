@@ -32,7 +32,7 @@ export const NotePageView = ({
 
   const handleModalWithBtnClose = ()=>{
       handleSubmit();
-      // handleModalClose()
+      handleModalClose()
   }
 
   return (
@@ -58,7 +58,7 @@ export const NotePageView = ({
         modalChild={NoteTitleField}
         isClose={handleModalClose}
         handleTitleChange={handleTitleChange}
-        handleSubmit={handleSubmit}
+        handleSubmit={handleModalWithBtnClose}
       />
       <BottomNavigationBar handleClick={handleModalClick} />
       <SnackBar handleClose={handleClose} isOpen={open} />

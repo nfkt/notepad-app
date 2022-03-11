@@ -14,25 +14,32 @@ export const NoteContextProvider = ({ children }) => {
 
   useEffect(() => {
     getAllNotes().then((res) => {
-      console.log(res[0].description);
+    //   console.log(res[0].description);
       setNoteData(res);
       setNote(!note ? res[0].description : note);
-      setId(!id ? res[0]._id : id);
-      console.log(id);
+    //   setId(!id ? res[0]._id : id);
+    //   console.log(id);
     });
-  }, [note, title, id]);
+  }, [note]);
 
-  useEffect(() => {}, [id]);
+  useEffect(() => {
+    getAllNotes().then((res) => {
+      setNoteData(res);
+      setId(!id ? res[0]._id : id);
+    });
+  }, [id]);
 
   const getNoteFn = (index) => {
     setNote(noteData[index].description);
     setId(noteData[index]._id);
   };
   const createNoteFn = (data) => {
-    createNoteData(data).then((res)=>{setId(res._id);});
+    createNoteData(data).then((res) => {
+      setId(res._id);
+      setNote(res.description)
+    });
   };
-  const titleSet = (title) => setTitle(title); 
-
+  const titleSet = (title) => setTitle(title);
 
   return (
     <NoteContext.Provider

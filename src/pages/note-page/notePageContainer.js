@@ -41,6 +41,7 @@ export const NotePageContainer = () => {
         title: noteContext.title,
         description: noteContext.title,
       });
+      
     // window.location.reload(false);
   };
 
