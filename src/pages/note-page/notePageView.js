@@ -30,6 +30,11 @@ export const NotePageView = ({
     console.log(openFloatingBtn);
   };
 
+  const handleModalWithBtnClose = ()=>{
+      handleSubmit();
+      // handleModalClose()
+  }
+
   return (
     <>
       <NavBar

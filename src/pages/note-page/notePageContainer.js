@@ -4,7 +4,6 @@ import { useContext, useEffect, useState } from "react";
 import { updateNoteData } from "services/notesServices";
 import NoteContext from "contexts/noteContext/noteContext";
 
-
 export const NotePageContainer = () => {
   const noteContext = useContext(NoteContext);
 
@@ -29,20 +28,21 @@ export const NotePageContainer = () => {
       );
     }, 2000);
     return () => clearTimeout(timeOutId);
-  }, [inputs, noteContext.id]);
+  }, [inputs]);
 
-  const handleTitleChange = (e)=>{
-
+  const handleTitleChange = (e) => {
     const value = e.target.value;
     noteContext.titleSet(value);
+  };
 
-  }
-
-  const handleSubmit = ()=>{
-
-    noteContext.createNoteFn({title: noteContext.title, description:noteContext.title});
+  const handleSubmit = () => {
+    noteContext
+      .createNoteFn({
+        title: noteContext.title,
+        description: noteContext.title,
+      });
     // window.location.reload(false);
-  }
+  };
 
   return (
     <NotePageView
