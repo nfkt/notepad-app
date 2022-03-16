@@ -1,7 +1,7 @@
 import { SYSTEM_ERROR } from "config/Constants";
 import axios from 'axios'
 import { GET_ALL_NOTES, GET_NOTE_DATA, POST_NOTE_DATA, PUT_NOTE_DATA } from "./Constants"
-
+// import { createProxyMiddleware } from "http-proxy-middleware";
 
 /**
  * Function to fetch all the users.
@@ -10,9 +10,13 @@ export const getAllNotes = () => {
     let config = {
         method: 'get',
         url: GET_ALL_NOTES(),
+        withCredentials: true,
         headers: { 
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': 'http://localhost:3000',
         },
+        // proxy: createProxyMiddleware({ target: 'https://notit-nfkt.herokuapp.com', changeOrigin: true})
+    
       };
     console.log("notesServices > getAllNotes called...");
     return new Promise((resolve, reject) => {
@@ -38,9 +42,13 @@ export const getNoteData = (id) => {
     let config = {
         method: 'get',
         url: GET_NOTE_DATA(id),
+        withCredentials: true,
         headers: { 
-          'Content-Type': 'application/x-www-form-urlencoded'
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': 'http://localhost:3000',
         },
+        // proxy: createProxyMiddleware({ target: 'https://notit-nfkt.herokuapp.com', changeOrigin: true})
+
       };
     console.log("notesServices > getAllNotes called...");
     return new Promise((resolve, reject) => {
@@ -67,9 +75,13 @@ export const createNoteData = (data)=>{
       let config = {
         method: 'post',
         url: POST_NOTE_DATA(),
+        withCredentials: true,
         headers: { 
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': 'http://localhost:3000',
         },
+        // proxy: createProxyMiddleware({ target: 'https://notit-nfkt.herokuapp.com', changeOrigin: true}),
+
         data : JSON.stringify(data)
       };
       console.log("notesServices > createNoteData called...");
@@ -96,9 +108,13 @@ export const updateNoteData = (id, data)=>{
     let config = {
         method: 'put',
         url: PUT_NOTE_DATA(id),
+        withCredentials: true,
         headers: { 
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': 'http://localhost:3000',
         },
+        withCredentials: true,
+        // proxy: createProxyMiddleware({ target: 'https://notit-nfkt.herokuapp.com', changeOrigin: true}),
         data : JSON.stringify(data)
       };
       console.log("notesServices > updateNoteData called...");
